@@ -3,6 +3,7 @@ import { Fraunces, Inter, IBM_Plex_Mono } from "next/font/google";
 import Link from "next/link";
 import "../styles/globals.css";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -40,6 +41,7 @@ export default function RootLayout({
       className={`${fraunces.variable} ${inter.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-linen text-ink">
+        <Analytics />
         <header className="border-b border-seam/60">
           <div className="mx-auto max-w-5xl px-6 py-5 flex items-center justify-between">
             <Link

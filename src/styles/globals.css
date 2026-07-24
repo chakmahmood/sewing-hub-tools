@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+/*
+  Sewing Hub token system
+  ------------------------
+  linen      – page background, unbleached muslin
+  chalk      – card surface, tailor's chalk
+  ink        – primary text, warm near-black (not pure black)
+  denim      – primary brand / navy thread spool
+  tomato     – accent / CTA, classic pincushion red
+  thread-gold– secondary accent, mustard thread
+  seam       – hairline borders, unbleached thread grey
+*/
+:root {
+  --linen: #ede6da;
+  --chalk: #f8f5ef;
+  --ink: #241f1c;
+  --denim: #2b3a55;
+  --denim-light: #435374;
+  --tomato: #c1443c;
+  --tomato-dark: #9c332c;
+  --thread-gold: #d9a441;
+  --seam: #c9bfae;
+}
+
+@theme inline {
+  --color-background: var(--linen);
+  --color-foreground: var(--ink);
+  --color-linen: var(--linen);
+  --color-chalk: var(--chalk);
+  --color-ink: var(--ink);
+  --color-denim: var(--denim);
+  --color-denim-light: var(--denim-light);
+  --color-tomato: var(--tomato);
+  --color-tomato-dark: var(--tomato-dark);
+  --color-thread-gold: var(--thread-gold);
+  --color-seam: var(--seam);
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-plex-mono);
+}
+
+body {
+  background: var(--linen);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+/* Tape-measure tick divider — the page's signature motif */
+.tape-divider {
+  height: 14px;
+  width: 100%;
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--seam) 0px,
+    var(--seam) 1px,
+    transparent 1px,
+    transparent 8px
+  );
+  background-position: bottom;
+  background-size: 100% 100%;
+  opacity: 0.6;
+}

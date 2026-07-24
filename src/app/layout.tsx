@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, Inter, IBM_Plex_Mono } from "next/font/google";
 import Link from "next/link";
 import "../styles/globals.css";
+import Script from "next/script";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -77,6 +78,15 @@ export default function RootLayout({
           <div className="tape-divider" />
         </header>
         <main className="flex-1">{children}</main>
+        <div className="mx-auto max-w-5xl px-6 py-8">
+          <div id="container-d061fee37804c828ec0c47560e88296e" />
+        </div>
+
+        <Script
+          src="https://pl30512595.effectivecpmnetwork.com/d061fee37804c828ec0c47560e88296e/invoke.js"
+          strategy="afterInteractive"
+          async
+        />
         <footer className="border-t border-seam/60 mt-16">
           <div className="mx-auto max-w-5xl px-6 py-8 text-sm text-ink/60 flex flex-col sm:flex-row justify-between gap-2">
             <span>Sewing Hub — measured twice, cut once.</span>
@@ -86,6 +96,10 @@ export default function RootLayout({
             </span>
           </div>
         </footer>
+        <Script
+          src="https://pl30512594.effectivecpmnetwork.com/ae/e7/8c/aee78cff825414d97ef58ade024a2ccd.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

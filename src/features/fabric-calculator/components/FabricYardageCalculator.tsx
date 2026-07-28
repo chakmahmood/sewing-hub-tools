@@ -13,6 +13,9 @@ import { affiliateProducts } from "@/lib/affiliate-links";
 import { getFabricType } from "../data";
 
 import { getRecommendations } from "../lib/recommendations";
+import { BookmarkPrompt } from "@/components/ui/BookmarkPrompt";
+import FAQAccordion from "@/components/ui/FAQAccordion";
+import { FABRIC_CALCULATOR_FAQS } from "../faq";
 
 export function FabricYardageCalculator() {
   const calculator = useFabricCalculator();
@@ -292,6 +295,12 @@ export function FabricYardageCalculator() {
           </section>
         </div>
       </div>
+      <BookmarkPrompt enabled={result.neededYards > 0} />
+      <FAQAccordion
+        faqs={FABRIC_CALCULATOR_FAQS}
+        title="Fabric Yardage Calculator FAQ"
+        description="Everything you need to know before buying fabric for your next sewing project."
+      />
     </ToolShell>
   );
 }

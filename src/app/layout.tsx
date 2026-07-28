@@ -4,6 +4,12 @@ import Link from "next/link";
 import "../styles/globals.css";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
+import SewingPatternSecrets from "@/components/affiliate/SewingPatternSecrets";
+import { PWAInstallPrompt } from "@/components/ui/PWAInstallPrompt";
+import SoftwareApplicationSchema from "@/components/Seo/SoftwareApplicationSchema";
+import { siteConfig } from "@/lib/site";
+import OrganizationSchema from "@/components/Seo/OrganizationSchema";
+import WebsiteSchema from "@/components/Seo/WebsiteSchema";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -26,8 +32,28 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: "Sewing Hub — Free tools for people who sew",
+
   description:
     "Fabric yardage calculator, unit converter, size charts, and needle & thread matcher. Built for sewists who need an answer fast.",
+
+  alternates: {
+    canonical: "/",
+  },
+
+  manifest: "/manifest.json",
+
+  themeColor: "#2b3a55",
+
+  appleWebApp: {
+    capable: true,
+    title: "Sewing Hub",
+    statusBarStyle: "default",
+  },
+
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/icons/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
@@ -42,6 +68,17 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-linen text-ink">
         <Analytics />
+        <OrganizationSchema name={siteConfig.name} url={siteConfig.url} />
+        <WebsiteSchema
+          name={siteConfig.name}
+          url={siteConfig.url}
+          description={siteConfig.description}
+        />
+        <SoftwareApplicationSchema
+          name={siteConfig.name}
+          description={siteConfig.description}
+          url={siteConfig.url}
+        />
         <header className="border-b border-seam/60">
           <div className="mx-auto max-w-5xl px-6 py-5 flex items-center justify-between">
             <Link
@@ -79,7 +116,10 @@ export default function RootLayout({
           </div>
           <div className="tape-divider" />
         </header>
+
         <main className="flex-1">{children}</main>
+
+        <SewingPatternSecrets />
         <div className="mx-auto max-w-5xl px-6 py-8">
           <div id="container-d061fee37804c828ec0c47560e88296e" />
         </div>
@@ -102,6 +142,7 @@ export default function RootLayout({
           src="https://pl30512594.effectivecpmnetwork.com/ae/e7/8c/aee78cff825414d97ef58ade024a2ccd.js"
           strategy="afterInteractive"
         />
+        <PWAInstallPrompt />
       </body>
     </html>
   );
